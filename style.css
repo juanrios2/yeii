@@ -1,0 +1,54 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #fceabb, #f8003e0c); /* Un degradado cálido */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: center;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2em 0;
+    margin-bottom: 2em;
+}
+
+h1 {
+    color: #e91e63; /* Un toque de rosa */
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.imagen {
+    width: 300px;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.imagen img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.imagen p {
+    font-style: italic;
+    color: #777;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 1em 0;
+    margin-top: 2em;
+}
