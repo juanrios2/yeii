@@ -3,40 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi bebé</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Un Detalle Muy Especial para Ti</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fceabb, #ffe6f0); /* Degradado suave rosa */
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+        }
+
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2em 0;
+            margin-bottom: 2em;
+        }
+
+        h1 {
+            color: #e91e63; /* Rosa fuerte */
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-family: 'Brush Script MT', cursive; /* Fuente cursiva para el título principal */
+        }
+
+        #password-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 400px;
+        }
+
+        #password-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            width: 80%;
+        }
+
+        #submit-password {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        #submit-password:hover {
+            background-color: #c2185b;
+        }
+
+        #contenido-principal {
+            display: none;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        #foto-carta {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        #photo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        #photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #heart-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #heart-button:hover {
+            transform: scale(1.1);
+        }
+
+        #heart-image {
+            width: 40px;
+            height: auto;
+            display: block;
+        }
+
+        #carta-container {
+            display: none;
+            background-color: #ffe6f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            white-space: pre-line;
+            text-align: left;
+        }
+
+        #tiempo-juntos {
+            font-size: 18px;
+            margin-top: 20px;
+            color: #e91e63;
+        }
+
+        .tiempo-unidad {
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .galeria {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .imagen {
+            width: 250px;
+            margin: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .imagen img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .imagen p {
+            font-style: italic;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        footer {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 1em 0;
+            margin-top: 2em;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Mi Amor  Eterno</h1>
+        <h1>Mi Amor Eterno</h1>
     </header>
-    <main class="galeria">
-        <div class="imagen">
-            <img src="https://i.ibb.co/JjqpSQ7D/Imagen-de-Whats-App-2025-03-19-a-las-17-41-10-404ff280.jpg" alt="Imagen 1">
-            <p>Un recuerdo espacial...</p>
+
+    <div id="password-container">
+        <h2>Para acceder a este detalle especial, ingresa la contraseña:</h2>
+        <input type="password" id="password-input" placeholder="Tu contraseña secreta">
+        <button id="submit-password">Entrar</button>
+    </div>
+
+    <div id="contenido-principal" style="display: none;">
+        <div id="foto-carta">
+            <div id="photo-container">
+                <img id="photo" src="corazon_rosa.jpg" alt="Foto de Nosotros">
+            </div>
+            <button id="heart-button">
+                <img id="heart-image" src="corazon_flecha.png" alt="Abrir Carta">
+            </button>
         </div>
-        <div class="imagen">
-            <img src="https://i.ibb.co/sv33W5Cm/Imagen-de-Whats-App-2025-03-19-a-las-17-42-50-43304be0.jpg" alt="Imagen 2">
-            <p>Momentos inolvidables...</p>
+        <div id="carta-container">
+            Mi bebé, Yei
+
+            Primeramente, te quiero dar las gracias por seguir junto a mi lado durante 3 meses tan espectaculares. Gracias por apoyarme en cada cosa, por amarme en la forma en que lo haces, por darme esa seguridad, por cuidarme, por ser paciente, por entenderme, porque me aguantas y entiendes cada parte de mí, por aun así conocerme hasta este punto y no juzgarme, por ayudarme a mejorar y a querer aprender más, por decirme siempre las cosas de la manera más transparente, por darme las ganas de seguir adelante y, sobre todo, por entender que en la etapa en la que estoy no puedo darte todo eso que quisiera, por tu paciencia hacia mí (sé que no soy fácil) y por darme excelentes esperanzas y mucho más...
+Aprovecho esto también para pedirte disculpas si en algún momento te hice sentir mal, te he tratado mal o como no debería, si en algún momento he apagado tu brillo o si has sentido que he querido cambiar algo de ti. Por alguna de estas razones u otras más, de corazón te pido disculpas.
+Quiero que sepas también los grandes planes que quiero que tengamos a lo largo de la relación, como viajar, dormir juntos, seguir conociéndonos, salir, comer, "comernos", mejorar para nosotros mismos, ser profesionales, comprar cosas juntos (que me explotes la tarjeta ), vivir juntos, comprar vehículo, llevarte a Grecia (Santorini), casarme contigo y, como yo sé que tú quieres darte un hijo, pero todo a su tiempo... Ojalá Dios permita todo esto.
+Como último, recordarte que el día que ya no sientas esto, o el día que suceda otra situación en la que ya no te veas a mi lado, cualquier cosa me la puedes decir. Fácilmente yo entenderé y...
+
+Por ultimo te dare unas cuantas razones por las que te amo
+
         </div>
-        <div class="imagen">
-            <img src="https://i.ibb.co/XkpFTr9C/Imagen-de-Whats-App-2025-03-19-a-las-17-44-21-3f64f514.jpg" alt="Imagen 3">
-            <p>Te amo más cada día...</p>
+
+        <div id="tiempo-juntos">
+            <p>Nuestro tiempo juntos:</p>
+            <div id="contador">
+                <span class="tiempo-unidad"><span id="anios">0</span> Años</span>
+                <span class="tiempo-unidad"><span id="meses">0</span> Meses</span>
+                <span class="tiempo-unidad"><span id="dias">0</span> Días</span>
+                <span class="tiempo-unidad"><span id="horas">0</span> Horas</span>
+                <span class="tiempo-unidad"><span id="minutos">0</span> Minutos</span>
+                <span class="tiempo-unidad"><span id="segundos">0</span> Segundos</span>
+            </div>
         </div>
-        <div class="imagen">
-            <img src="https://i.ibb.co/zV9cjtN1/Imagen-de-Whats-App-2025-03-19-a-las-17-37-10-e48226a5.jpg" alt = "Imagen 4">
-            <p>Siempre juntos hasta casarnos de nuevo...</p>
-        </div>
-        <div class="imagen">
-            <img src="https://i.ibb.co/N6m45nyb/Imagen-de-Whats-App-2025-03-19-a-las-17-38-10-0c389a96.jpg" alt="Imagen 5">
-            <p>Mi persona favorita...</p>
-        </div>
-        <div class="imagen">
-            <img src="https://i.ibb.co/F4VsmFCN/Imagen-de-Whats-App-2025-03-19-a-las-17-45-15-c6d2bc2c.jpg" alt="Imagen 6">
-            <p>Mi bebé...</p>
-    </main>
+
+        <main class="galeria">
+            <div class="imagen">
+                <img src="https://i.ibb.co/JjqpSQ7D/Imagen-de-Whats-App-2025-03-19-a-las-17-41-10-404ff280.jpg" alt="Imagen 1">
+                <p>Un recuerdo espacial...</p>
+            </div>
+            <div class="imagen">
+                <img src="https://i.ibb.co/sv33W5Cm/Imagen-de-Whats-App-2025-03-19-a-las-17-42-50-43304be0.jpg" alt="Imagen 2">
+                <p>Momentos inolvidables...</p>
+            </div>
+            <div class="imagen">
+                <img src="https://i.ibb.co/XkpFTr9C/Imagen-de-Whats-App-2025-03-19-a-las-17-44-21-3f64f514.jpg" alt="Imagen 3">
+                <p>Te amo más cada día...</p>
+            </div>
+            <div class="imagen">
+                <img src="https://i.ibb.co/zV9cjtN1/Imagen-de-Whats-App-2025-03-19-a-las-17-37-10-e48226a5.jpg" alt = "Imagen 4">
+                <p>Siempre juntos hasta casarnos de nuevo...</p>
+            </div>
+            <div class="imagen">
+                <img src="https://i.ibb.co/N6m45nyb/Imagen-de-Whats-App-2025-03-19-a-las-17-38-10-0c389a96.jpg" alt="Imagen 5">
+                <p>Mi persona favorita...</p>
+            </div>
+            <div class="imagen">
+                <img src="https://i.ibb.co/F4VsmFCN/Imagen-de-Whats-App-2025-03-19-a-las-17-45-15-c6d2bc2c.jpg" alt="Imagen 6">
+                <p>Mi bebé...</p>
+            </div>
+        </main>
+    </div>
+
     <footer>
         <p>Con todo mi amor, para ti, de Juanmi.</p>
     </footer>
+
+    <script>
+        const passwordContainer = document.getElementById('password-container');
+        const passwordInput = document.getElementById('password-input');
+        const submitPasswordButton = document.getElementById('submit-password');
+        const contenidoPrincipalDiv = document.getElementById('contenido-principal');
+        const heartButton = document.getElementById('heart-button');
+        const cartaContainer = document.getElementById('carta-container');
+        const aniosSpan = document.getElementById('anios');
+        const mesesSpan = document.getElementById('meses');
+        const diasSpan = document.getElementById('dias');
+        const horasSpan = document.getElementById('horas');
+        const minutosSpan = document.getElementById('minutos');
+        const segundosSpan = document.getElementById('segundos');
+        const fechaInicio = new Date('2025-02-15T22:37:00'); // Reemplaza con tu fecha de inicio
+        const contraseñaCorrecta = "150225"; // ¡Reemplaza con tu contraseña!
+
+        submitPasswordButton.addEventListener('click', function() {
+            if (passwordInput.value === contraseñaCorrecta) {
+                passwordContainer.style.display = 'none';
+                contenidoPrincipalDiv.style.display = 'block';
+                iniciarContador();
+            } else {
+                alert('Contraseña incorrecta.');
+            }
+        });
+
+        heartButton.addEventListener('click', function() {
+            cartaContainer.style.display = (cartaContainer.style.display === 'none' || cartaContainer.style.display === '') ? 'block' : 'none';
+        });
+
+        function actualizarContador() {
+            const ahora = new Date();
+            const diferencia = ahora.getTime() - fechaInicio.getTime();
+
+            const segundos = Math.floor(diferencia / 1000) % 60;
+            const minutos = Math.floor(diferencia / (1000 * 60)) % 60;
+            const horas = Math.floor(diferencia / (1000 * 60 * 60)) % 24;
+            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            const meses = Math.floor(dias / 30.44);
+            const anios = Math.floor(dias / 365.25);
+
+            aniosSpan.textContent = anios;
+            mesesSpan.textContent = meses % 12;
+            diasSpan.textContent = dias % 30;
+            horasSpan.textContent = String(horas).padStart(2, '0');
+            minutosSpan.textContent = String(minutos).padStart(2, '0');
+            segundosSpan.textContent = String(segundos).padStart(2, '0');
+        }
+
+        function iniciarContador() {
+            setInterval(actualizarContador, 1000);
+        }
+
+        document.getElementById('photo').src = 'https://i.ibb.co/XkpFTr9C/Imagen-de-Whats-App-2025-03-19-a-las-17-44-21-3f64f514.jpg'; // Asegúrate de tener esta imagen
+    </script>
 </body>
 </html>
