@@ -5,85 +5,114 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Un Detalle Muy Especial para Ti</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #fceabb, #ffe6f0);
+            font-family: 'Montserrat', sans-serif; /* Fuente moderna para el cuerpo */
+            background: linear-gradient(135deg, #fceabb, #ffe6f0); /* Degradado base */
+            background-size: 400% 400%; /* Para la animación del gradiente */
+            animation: gradientAnimation 15s ease infinite; /* Animación de gradiente */
             margin: 0;
             padding: 0;
             color: #333;
             text-align: center;
+            overflow-x: hidden; /* Evita scroll horizontal por animaciones */
+        }
+
+        /* Animación del gradiente de fondo */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         header {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 2em 0;
             margin-bottom: 2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave para el encabezado */
         }
 
         h1 {
-            color: #e91e63;
-            font-size: 3em;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-            font-family: 'Brush Script MT', cursive;
+            font-family: 'Dancing Script', cursive; /* Fuente elegante para el título */
+            color: #e91e63; /* Un toque de rosa */
+            font-size: 3.5em; /* Tamaño de fuente ligeramente más grande */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25); /* Sombra más pronunciada */
+            margin: 0;
         }
 
         #password-container {
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin: 20px auto;
-            max-width: 400px;
+            border-radius: 15px; /* Bordes más redondeados */
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15); /* Sombra más suave y extendida */
+            padding: 40px; /* Más padding */
+            margin: 30px auto; /* Más margen */
+            max-width: 450px; /* Ancho ligeramente mayor */
+            animation: fadeIn 1s ease-out; /* Animación de entrada */
         }
 
         #password-input {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
-            margin-bottom: 15px;
-            width: 80%;
+            padding: 12px; /* Más padding */
+            border: 1px solid #ddd; /* Borde más sutil */
+            border-radius: 8px; /* Bordes más redondeados */
+            font-size: 17px; /* Fuente ligeramente más grande */
+            margin-bottom: 20px;
+            width: 85%; /* Ancho ligeramente mayor */
+            box-sizing: border-box; /* Incluye padding y borde en el ancho */
         }
 
         #submit-password {
             background-color: #e91e63;
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
+            padding: 12px 25px; /* Más padding */
+            border-radius: 8px; /* Bordes más redondeados */
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
+            font-size: 18px; /* Fuente más grande */
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para color y escala */
         }
 
         #submit-password:hover {
             background-color: #c2185b;
+            transform: scale(1.05); /* Efecto de escala al pasar el ratón */
         }
 
         #contenido-principal {
             display: none;
             background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin: 20px auto;
-            max-width: 800px;
+            border-radius: 15px; /* Bordes más redondeados */
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 850px; /* Ancho un poco mayor */
+            animation: fadeIn 1s ease-out; /* Animación de entrada */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         #foto-carta {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px; /* Más margen inferior */
+            flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
         }
 
         #photo-container {
-            width: 150px;
-            height: 150px;
+            width: 180px; /* Tamaño un poco más grande */
+            height: 180px;
             border-radius: 50%;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.25); /* Sombra más suave */
+            border: 5px solid #e91e63; /* Borde de color rosa */
+            transition: transform 0.3s ease;
+        }
+
+        #photo-container:hover {
+            transform: rotate(5deg) scale(1.03); /* Pequeña rotación y escala al pasar el ratón */
         }
 
         #photo {
@@ -92,83 +121,204 @@
             object-fit: cover;
         }
 
-        #heart-button {
+        #heart-button, #pink-heart-button {
             background: none;
             border: none;
             cursor: pointer;
-            padding: 0;
-            transition: transform 0.2s ease-in-out;
+            padding: 10px; /* Más padding alrededor del corazón */
+            transition: transform 0.2s ease-in-out, filter 0.3s ease; /* Transición para escala y filtro */
+            margin: 0 15px; /* Espacio entre los corazones */
         }
 
-        #heart-button:hover {
-            transform: scale(1.1);
+        #heart-button:hover, #pink-heart-button:hover {
+            transform: scale(1.2); /* Efecto de escala más pronunciado */
+            filter: brightness(1.1); /* Ligero brillo */
         }
 
-        #heart-image {
-            width: 40px;
-            height: auto;
+        #heart-button:active, #pink-heart-button:active {
+            animation: pulse 0.3s ease-in-out; /* Animación de latido al hacer clic */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); } /* Latido más grande */
+            100% { transform: scale(1); }
+        }
+
+        #heart-image, #pink-heart-image {
+            font-size: 50px; /* Corazones más grandes */
             display: block;
+            line-height: 1; /* Asegura que el corazón se vea bien */
+        }
+        
+        #pink-heart-image {
+            color: hotpink; /* Asegura el color rosa vibrante */
         }
 
         #carta-container {
             display: none;
-            background-color: #ffe6f0;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            background-color: #fff0f5; /* Un rosa muy claro para el fondo de la carta */
+            padding: 25px; /* Más padding */
+            border-radius: 12px; /* Bordes más redondeados */
+            margin-top: 25px; /* Más margen superior */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08); /* Sombra más sutil */
             white-space: pre-line;
             text-align: left;
+            line-height: 1.6; /* Mayor espacio entre líneas para mejor lectura */
+            font-size: 1.1em; /* Texto un poco más grande */
+            color: #555;
+            border: 1px solid #ffe6f0; /* Borde suave */
+            animation: slideInUp 0.6s ease-out; /* Animación de entrada de la carta */
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         #tiempo-juntos {
-            font-size: 18px;
-            margin-top: 20px;
+            font-size: 20px; /* Fuente más grande */
+            margin-top: 40px; /* Más margen superior */
             color: #e91e63;
+            font-weight: bold; /* Texto en negrita */
+            animation: popIn 0.5s ease-out forwards; /* Animación de entrada */
+            animation-delay: 0.5s; /* Retraso para que aparezca después del contenido */
+            opacity: 0; /* Empieza oculto */
+        }
+        @keyframes popIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .tiempo-unidad {
             display: inline-block;
-            margin: 0 10px;
+            margin: 0 12px; /* Más espacio entre unidades */
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 8px 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            min-width: 80px; /* Ancho mínimo para mantener uniformidad */
         }
 
         .galeria {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            padding: 20px;
-            margin-top: 20px;
+            padding: 30px; /* Más padding */
+            margin-top: 30px; /* Más margen superior */
         }
 
         .imagen {
-            width: 250px;
-            margin: 20px;
-            background-color: rgba(255, 255, 255, 0.7);
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            width: 280px; /* Ancho ligeramente ajustado para un mejor ajuste en la cuadrícula */
+            margin: 25px; /* Más margen */
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo más opaco */
+            border-radius: 15px; /* Bordes más redondeados */
+            padding: 20px;
+            box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más visible */
             text-align: center;
+            overflow: hidden; /* Asegura que la imagen no se desborde al escalar */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+        }
+
+        .imagen:hover {
+            transform: translateY(-8px) scale(1.03); /* Levanta y escala más al pasar el ratón */
+            box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.35); /* Sombra más pronunciada */
         }
 
         .imagen img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            margin-bottom: 10px;
+            border-radius: 10px; /* Bordes más redondeados para las imágenes */
+            margin-bottom: 15px; /* Más margen inferior */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave en las imágenes */
         }
 
         .imagen p {
             font-style: italic;
-            color: #777;
-            font-size: 0.9em;
+            color: #666; /* Color de texto ligeramente más oscuro */
+            font-size: 1em; /* Tamaño de fuente ligeramente más grande */
         }
 
         footer {
             background-color: rgba(255, 255, 255, 0.8);
-            padding: 1em 0;
-            margin-top: 2em;
-            font-size: 0.9em;
-            color: #777;
+            padding: 1.5em 0; /* Más padding */
+            margin-top: 3em; /* Más margen superior */
+            font-size: 1em; /* Fuente ligeramente más grande */
+            color: #666; /* Color de texto más suave */
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05); /* Sombra superior sutil */
+        }
+
+        /* --- Media Queries para Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            #password-container, #contenido-principal {
+                margin: 20px auto;
+                padding: 25px;
+            }
+
+            #password-input {
+                width: 90%;
+            }
+
+            #foto-carta {
+                flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+                margin-bottom: 20px;
+            }
+
+            #photo-container {
+                margin-bottom: 20px; /* Espacio entre la foto y los botones */
+            }
+
+            #heart-button, #pink-heart-button {
+                margin: 0 10px;
+                padding: 5px;
+            }
+
+            #heart-image, #pink-heart-image {
+                font-size: 45px;
+            }
+
+            #carta-container {
+                padding: 20px;
+                font-size: 1em;
+            }
+
+            #tiempo-juntos {
+                font-size: 16px;
+                margin-top: 30px;
+            }
+
+            .tiempo-unidad {
+                margin: 0 8px;
+                padding: 6px 12px;
+                min-width: 70px;
+            }
+
+            .galeria {
+                padding: 15px;
+            }
+
+            .imagen {
+                width: 90%; /* Las imágenes ocupan casi todo el ancho */
+                margin: 15px auto;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2em;
+            }
+            #password-container {
+                max-width: 90%;
+            }
+            .tiempo-unidad {
+                display: block; /* Cada unidad de tiempo en su propia línea */
+                margin: 10px auto;
+            }
         }
     </style>
 </head>
@@ -179,23 +329,18 @@
     </header>
 
     <div id="password-container">
-        <h2>Para entrar a este detalle espacial, ingresa la contraseña:</h2>
-        <input type="password" id="password-input" placeholder="Ojala besarte esas tetas mi chiquibaby">
+        <h2>Para entrar a este detalle que en su tiempo fue espacial, ingresa la contraseña:</h2>
+        <input type="password" id="password-input" placeholder="Ojala verte algún otro dia">
         <button id="submit-password">Entrar</button>
     </div>
 
-    <div id="contenido-principal" style="display: none;">
+    <div id="contenido-principal">
         <div id="foto-carta">
             <div id="photo-container">
                 <img id="photo" src="https://i.ibb.co/ns9395dq/yeiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii.jpg"
                     alt="Foto de Nosotros">
             </div>
-            <button id ="heart-button">
-                <span id="heart-image" style="font-size: 40px;">❤️</span>
-            </button>
-        </div>
-        <div id="carta-container">
-            Mi bebé, Yei
+            <button id="heart-button" data-message="Ultima carta para Yei
 
             Primeramente, te quiero dar las gracias por seguir junto a mi lado durante 3 meses tan espectaculares.
             Gracias por apoyarme en cada cosa, por amarme en la forma en que lo haces, por darme esa seguridad,
@@ -209,7 +354,7 @@
             mal o como no debería, si en algún momento he apagado tu brillo o si has sentido que he querido
             cambiar algo de ti. Por alguna de estas razones u otras más, de corazón te pido disculpas.
             Quiero que sepas también los grandes planes que quiero que tengamos a lo largo de la relación,
-            como viajar, dormir juntos, seguir conociéndonos, salir, comer, "comernos", mejorar para nosotros
+            como viajar, dormir juntos, seguir conociéndonos, salir, comer, 'comernos', mejorar para nosotros
             mismos, ser profesionales, comprar cosas juntos (que me explotes la tarjeta ), vivir juntos, comprar
             vehículo, llevarte a Grecia (Santorini), casarme contigo y, como yo sé que tú quieres darte un hijo,
             pero todo a su tiempo... Ojalá Dios permita todo esto.
@@ -318,14 +463,35 @@
             98 Detallista
             99 Tus manualidades
             100 El extrañarte porque eso significa que te amor
-             Y alguna forma en la que me vaya , simplemente seria una razón
+              Y alguna forma en la que me vaya , simplemente seria una razón
               Que no me dejes ver a mi canguro favorito (Simba) y a mi hiena favorita (Miller)
 
-
+            ">
+                <span id="heart-image" style="font-size: 40px;">❤️</span>
+            </button>
+            <button id="pink-heart-button" data-message="Ultima carta para Yei
+            Bueno, ya todo esto quedará tristemente atras , sea por la razon que fue , de mi parte siempre voy a desear lo mejor para ti 
+              le pido a Dios que te de todo lo que quieras, que te cuide, y le de prosperidad a tu vida y a tu familia, nuevamente disculpa 
+              por  todo , si me hubiese gustado que me dijeras la total sinceridad , pero aja todo pasa a su manera y por algo, y que siempre
+              estare para ti como te dije , si necesitas hablar  y demas, aunque se que no volveras hacerlo, por orgullo o porque se que querias 
+              sacarme de tu vida , porque si lo note, me llevo lo mejor de ti, eres una mujer espertacular , sientete orgullosa 
+              de quien eres, no pierdas tu esencia y para adelante, de mi parte le doy las gracias a tu familia , ojala lo supieran, y nada 
+              menos mal me di cuenta de muchas cosas enseguida , y tome la decision  que tu tambien tomaste, que es colocarte como prioridad
+              tengo que seguir adelante porque se que tu ya no volveras , en realidad te tenia como una prioridad , pero tuve que pensar en mi 
+              recapacitar y comenzar a dejarte ir , aceptar que ya tu lo hiciste. algun dia  a su tiempo estare mejor, te guardare tu espacio
+              en mi corazon , me costo borrarte de mis redes pero todo sea por un bien, y nada entrar en contacto 0. Se que me falto por decirte 
+              aqui, pero espero este lo mas importante, hay literal un 1 % de que veas esto, pero escribir me ayuda a desahogarme, cuida mucho a esos perritos hermosos
+              que lo extrañare demasiado. y nada no se si algun dia volveremos a tener contacto, por si acaso felizzzz cumpleaños que Dios te 
+              bendiga y pases el mejor de tus dias, es tu dia y disfrutalo con los que mas quieres, aunque falta muchisimo.  
+               es hora de aceptar las cosas y seguir. a esta fecha que no sabes , aun te amo.">
+                <span id="pink-heart-image" style="font-size: 40px; color: hotpink;">❤️</span>
+            </button>
         </div>
+        <div id="carta-container">
+            </div>
 
         <div id="tiempo-juntos">
-            <p>Nuestro tiempo juntos:</p>
+            <p>Tiempo que llevasemos juntos:</p>
             <div id="contador">
                 <span class="tiempo-unidad"><span id="anios">0</span> Años</span>
                 <span class="tiempo-unidad"><span id="meses">0</span> Meses</span>
@@ -340,7 +506,7 @@
             <div class="imagen">
                 <img src="https://i.ibb.co/JjqpSQ7D/Imagen-de-Whats-App-2025-03-19-a-las-17-41-10-404ff280.jpg"
                     alt="Imagen 1">
-                <p>Un recuerdo espacial...</p>
+                <p>Un recuerdo especial...</p>
             </div>
             <div class="imagen">
                 <img src="https://i.ibb.co/sv33W5Cm/Imagen-de-Whats-App-2025-03-19-a-las-17-42-50-43304be0.jpg"
@@ -380,6 +546,7 @@
         const submitPasswordButton = document.getElementById('submit-password');
         const contenidoPrincipalDiv = document.getElementById('contenido-principal');
         const heartButton = document.getElementById('heart-button');
+        const pinkHeartButton = document.getElementById('pink-heart-button');
         const cartaContainer = document.getElementById('carta-container');
         const aniosSpan = document.getElementById('anios');
         const mesesSpan = document.getElementById('meses');
@@ -387,7 +554,13 @@
         const horasSpan = document.getElementById('horas');
         const minutosSpan = document.getElementById('minutos');
         const segundosSpan = document.getElementById('segundos');
-        const fechaInicio = new Date('2025-02-15T22:37:00');
+        
+        // La fecha de inicio debe ser la fecha real en que comenzaron, no una fecha futura.
+        // Si la relación comenzó el 15 de febrero de 2025, la fecha es correcta.
+        // Si deseas que el contador empiece desde hoy (12 de junio de 2025), cambia la fecha:
+        // const fechaInicio = new Date('2025-06-12T00:00:00'); // Por ejemplo, si el contador empieza desde hoy
+        const fechaInicio = new Date('2025-02-15T22:37:00'); // La fecha original que habías puesto
+        
         const contraseñaCorrecta = "150225";
 
         submitPasswordButton.addEventListener('click', function () {
@@ -400,9 +573,23 @@
             }
         });
 
-        heartButton.addEventListener('click', function () {
-            cartaContainer.style.display = (cartaContainer.style.display === 'none' || cartaContainer.style.display === '') ? 'block' : 'none';
-        });
+        // Función para manejar el clic en los botones de corazón
+        function handleHeartButtonClick(event) {
+            const button = event.currentTarget; // El botón que fue clickeado
+            const message = button.getAttribute('data-message'); // Obtiene el mensaje del atributo data-message
+
+            // Si la carta está visible y el contenido es el mismo, ocúltala
+            if (cartaContainer.style.display === 'block' && cartaContainer.innerHTML === message) {
+                cartaContainer.style.display = 'none';
+            } else {
+                cartaContainer.innerHTML = message; // Inserta el mensaje en el contenedor de la carta
+                cartaContainer.style.display = 'block'; // Muestra la carta
+            }
+        }
+
+        // Asignar el event listener a ambos botones
+        heartButton.addEventListener('click', handleHeartButtonClick);
+        pinkHeartButton.addEventListener('click', handleHeartButtonClick);
 
         function actualizarContador() {
             const ahora = new Date();
@@ -411,22 +598,38 @@
             const segundos = Math.floor(diferencia / 1000) % 60;
             const minutos = Math.floor(diferencia / (1000 * 60)) % 60;
             const horas = Math.floor(diferencia / (1000 * 60 * 60)) % 24;
-            const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
-            const meses = Math.floor(dias / 30.44);
-            const anios = Math.floor(dias / 365.25);
+            const diasTotales = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+            
+            // Cálculo de años y meses más precisos
+            let anios = ahora.getFullYear() - fechaInicio.getFullYear();
+            let meses = ahora.getMonth() - fechaInicio.getMonth();
+            let dias = ahora.getDate() - fechaInicio.getDate();
+
+            if (dias < 0) {
+                meses--;
+                dias += new Date(ahora.getFullYear(), ahora.getMonth(), 0).getDate(); // Días del mes anterior
+            }
+            if (meses < 0) {
+                anios--;
+                meses += 12;
+            }
 
             aniosSpan.textContent = anios;
-            mesesSpan.textContent = meses % 12;
-            diasSpan.textContent = dias % 30;
+            mesesSpan.textContent = meses;
+            diasSpan.textContent = dias;
             horasSpan.textContent = String(horas).padStart(2, '0');
             minutosSpan.textContent = String(minutos).padStart(2, '0');
             segundosSpan.textContent = String(segundos).padStart(2, '0');
         }
 
         function iniciarContador() {
+            // Llama a actualizarContador una vez al inicio para que no haya retraso
+            actualizarContador(); 
+            // Luego, actualiza cada segundo
             setInterval(actualizarContador, 1000);
         }
 
+        // Puedes cambiar la imagen de perfil si lo deseas
         document.getElementById('photo').src = 'https://i.ibb.co/XkpFTr9C/Imagen-de-Whats-App-2025-03-19-a-las-17-44-21-3f64f514.jpg';
     </script>
 </body>
